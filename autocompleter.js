@@ -4,15 +4,17 @@ Vue.component('v-autocompleter', {
         return {
             googleSearch: "",
             cities: window.cities,
-            autocompleterResults: true,
             current: -1,
-            currentResults: -1,
             filteredCities: [],
             autocompleterIsActive: false,
         }
     },
 
     watch: {
+        /**
+         * Funkcja, która filtruje listę miast, zawierających wpisaną frazę
+         * @returns lista dziesięciu miast
+         */
         googleSearch: function() {
             if (this.autocompleterIsActive)
             {
@@ -33,26 +35,27 @@ Vue.component('v-autocompleter', {
     },
 
     methods: {
+        /**
+         * Funkcja służąca do obsługi przejścia do strony wyników
+         */
         selectCity: function() {
-            //this.googleResults = true;
-            //this.googleSearch = this.filteredCities[current].name;
-            //this.googleSearch=city.name
-            console.log('dziala');
-            console.log(this.googleResults);
+            this.googleResults = true;
+            console.log('comprobando');
         },
 
+        /**
+         * Funkcja pogrubiająca fragment nazwy miasta, która nie pokrywa się z wyszukiwaniem
+         * @param {nazwa miasta} word 
+         * @param {wpisana fraza} query 
+         * @returns nazwa miasta z zastosowaniem odpowiedniego formatowania
+         */
         highlight: function(word, query) {
             return result = word.replace(query, '<span class="nonhighlighted">' + query + '</span>')
         },
 
-        selectCityResults: function() {
-            this.autocompleterResults = false;
-        },
-
-        selectCityResults2: function() {
-            this.autocompleterResults = true;
-        },
-
+        /**
+         * Funkcja pozwalająca na obsługę strzałki w dół
+         */
         down: function() {
             if (!this.autocompleterIsActive) {
                 this.current = -1;
@@ -69,6 +72,9 @@ Vue.component('v-autocompleter', {
 
         },
 
+        /**
+         * Funkcja pozwalająca na obsługę strzałki w górę
+         */
         up: function() {
             if (!this.autocompleterIsActive) {
                 this.current = -1;
@@ -84,52 +90,18 @@ Vue.component('v-autocompleter', {
             this.googleSearch = this.filteredCities[this.current].name;
         },
 
+        /**
+         * Funkcja sprawiająca, że po skasowaniu wartości w polu input, autocompleter ponownie działa i żadna wartość nie jest podświetlona
+         */
         back: function() {
             this.autocompleterIsActive = false;
             this.current = -1;
-        },
-
-        downResults: function() {
-            if (!this.autocompleterIsActive) {
-                this.currentResults = -1;
-            }
-            if (this.currentResults < this.filteredCities.length)
-            {
-                this.currentResults++;
-            } else if (this.currentResults == this.filteredCities.length)
-            {
-                this.currentResults = 0;
-            }
-            this.autocompleterIsActive = true;
-            this.googleSearch = this.filteredCities[this.currentResults].name;
-        },
-
-        upResults: function() {
-            if (!this.autocompleterIsActive) {
-                this.currentResults = -1;
-            }
-            if(this.currentResults > 0)
-            {
-                this.currentResults--;
-            } else if (this.currentResults < 0)
-            {
-                this.currentResults = this.filteredCities.length - 1;
-            }
-            this.autocompleterIsActive = true;
-            this.googleSearch = this.filteredCities[this.currentResults].name;
-        },
-
-        backResults: function() {
-            this.autocompleterResults = false;
-            this.autocompleterIsActive = false;
-            this.currentResults = -1;
         },
     },
 
     props: ['options'],
 
     template: 
-        //'<div class="search_area"><div class="search_area2"><div class="search_icon"><img class="search_icon2" src="search.png"></div><div class="text_area1"><div class="text_area2"><input v-model="googleSearch" ref="inputFocus" class="text_input" maxlength="2048" name="q" type="text" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus role="combobox" spellcheck="false" title="Szukaj" value aria-label="Szukaj" v-on:keyup.enter="selectCity(), googleSearch=filteredCities[current].name" v-on:keyup.down="down()" v-on:keyup.up="up()" v-on:keyup.delete="back()"/></div></div><div class="key_area"><img src="tia.png"></div><div class="mic_area"><img src="mic.png"></div></div></div><ul :class="{nothing: googleSearch.length == 0, autocompleter: googleSearch.length > 0}"><li class="element"  :class="{hovered: current == i}" v-for="(city, i) in filteredCities" v-on:click="googleSearch=city.name; selectCity()"><img src="search.png"><span class="highlighted" v-html="highlight(city.name, googleSearch)">{{ city.name }}</span></li></ul>'
     `
         <div class="search_section">
             <div class="search_area">
@@ -172,6 +144,10 @@ Vue.component('v-autocompleter-results', {
     },
 
     watch: {
+        /**
+         * Funkcja, która filtruje listę miast, zawierających wpisaną frazę
+         * @returns lista dziesięciu miast
+         */
         googleSearch: function() {
             if (this.autocompleterIsActive)
             {
@@ -192,59 +168,33 @@ Vue.component('v-autocompleter-results', {
     },
 
     methods: {
-        selectcity: function() {
-            this.googleResults = true;
-            this.googleSearch = this.filteredCities[current].name;
-        },
-
+        /**
+         * Funkcja pogrubiająca fragment nazwy miasta, która nie pokrywa się z wyszukiwaniem
+         * @param {nazwa miasta} word 
+         * @param {wpisana fraza} query 
+         * @returns nazwa miasta z zastosowaniem odpowiedniego formatowania
+         */
         highlight: function(word, query) {
             return result = word.replace(query, '<span class="nonhighlighted">' + query + '</span>')
         },
 
+        /**
+         * Funkcja sprawiająca, że po wyborze wartości, znika lista autocompletera
+         */
         selectCityResults: function() {
             this.autocompleterResults = false;
         },
 
+        /**
+         * Funkcja sprawiająca, że po kliknięciu pola input rozwija się lista autocompletera
+         */
         selectCityResults2: function() {
             this.autocompleterResults = true;
         },
 
-        down: function() {
-            if (!this.autocompleterIsActive) {
-                this.current = -1;
-            }
-            if (this.current < this.filteredCities.length)
-            {
-                this.current++;
-            } else if (this.current == this.filteredCities.length)
-            {
-                this.current = 0;
-            }
-            this.autocompleterIsActive = true;
-            this.googleSearch = this.filteredCities[this.current].name;
-
-        },
-
-        up: function() {
-            if (!this.autocompleterIsActive) {
-                this.current = -1;
-            }
-            if(this.current > 0)
-            {
-                this.current--;
-            } else if (this.current < 0)
-            {
-                this.current = this.filteredCities.length - 1;
-            }
-            this.autocompleterIsActive = true;
-            this.googleSearch = this.filteredCities[this.current].name;
-        },
-
-        back: function() {
-            this.autocompleterIsActive = false;
-            this.current = -1;
-        },
-
+        /**
+         * Funkcja pozwalająca na obsługę strzałki w dół
+         */
         downResults: function() {
             if (!this.autocompleterIsActive) {
                 this.currentResults = -1;
@@ -260,6 +210,9 @@ Vue.component('v-autocompleter-results', {
             this.googleSearch = this.filteredCities[this.currentResults].name;
         },
 
+        /**
+         * Funkcja pozwalająca na obsługę strzałki w górę
+         */
         upResults: function() {
             if (!this.autocompleterIsActive) {
                 this.currentResults = -1;
@@ -275,6 +228,9 @@ Vue.component('v-autocompleter-results', {
             this.googleSearch = this.filteredCities[this.currentResults].name;
         },
 
+        /**
+         * Funkcja sprawiająca, że po skasowaniu wartości w polu input, autocompleter ponownie działa i żadna wartość nie jest wyróżniona
+         */
         backResults: function() {
             this.autocompleterResults = false;
             this.autocompleterIsActive = false;
