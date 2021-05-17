@@ -1,0 +1,327 @@
+.results #home_page
+{
+    display: none;
+}
+
+.home #results_page
+{
+    display: none;
+}
+
+.home .search_section
+{
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'arial', sans-serif;
+    font-size: 14px;
+    max-height: 160px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    /* padding-top: 30px; */
+}
+
+.home .search_area
+{
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-color: rgb(223, 225, 229);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 24px;
+    box-shadow: none;
+    color: rgb(34, 34, 34);
+    display: flex;
+    font-family: 'arial', sans-serif;
+    font-size: 14px;
+    height: 44px;
+    margin: 0px;
+    max-width: 584px;
+    width: 582px;
+    z-index: 3;
+}
+
+.home .search_area2
+{
+    color: rgb(34, 34, 34);
+    display: flex;
+    flex-basis: 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: 'arial', sans-serif;
+    font-size: 14px;
+    padding-bottom: 0px;
+    padding-left: 14px;
+    padding-right: 8px;
+    padding-top: 5px;
+}
+
+.home .search_area2:hover
+{
+    border: 2px solid rgb(231, 231, 231);
+    border-radius: 24px;
+}
+
+.home .text_area1
+{
+    color: rgb(34, 34, 34);
+    display: flex;
+    flex-basis: 0%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    font-family: 'arial', sans-serif;
+    font-size: 14px;
+    width: 450px;
+}
+
+.home .text_area2
+{
+    color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-family: 'arial', sans-serif;
+    font-size: 14px;
+    height: 34px;
+    white-space: pre;
+    width: 450px;
+}
+
+.home .text_input
+{
+    appearance: auto;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0.87);
+    border-style: none;
+    border-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: text;
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: 'arial', sans-serif;
+    font-size: 16px;
+    font-stretch: 100%;
+    font-weight: 400;
+    height: 34px;
+    letter-spacing: normal;
+    line-height: normal;
+    margin-top: -37px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    outline-color: rgba(0, 0, 0, 0.87);
+    outline-style: none;
+    outline-width: 0px;
+    overflow-wrap: break-word;
+    padding: 0px;
+    text-align: start;
+    text-indent: 0px;
+    text-rendering: auto;
+    text-shadow: none;
+    text-transform: none;
+    word-spacing: 0px;
+    writing-mode: horizontal-tb;
+}
+
+.results .topbar
+{
+    display: flex;
+    height: 64px;
+    width: 100%;
+    align-items: flex-end;
+    position: fixed;
+    background-color: white;
+}
+
+.results .searchbar
+{
+    width: 692px;
+    height: 45px;
+    border-radius: 100px;
+    border-color: #d3d3d3;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    overflow: hidden;
+    display: flex;
+    z-index: 100;
+}
+
+.results .searchbar:hover
+{
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+#home_page h3
+{
+    color: red;
+    text-align: center;
+    font-size: 32px;
+}
+
+#results_page h3{
+    color: red;
+    text-align: left;
+    padding-left: 230px;
+    font-size: 32px;
+}
+
+.results .search_text
+{
+    height: 45px;
+    border-style: none;
+    font-size: 16px;
+    line-height: 45px;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.results .search_text:focus
+{
+    outline: none;
+    border-style: none;
+    text-decoration: none;
+}
+
+.home .nothing
+{
+    display: none;
+}
+
+.home .autocompleter
+{
+    position: absolute;
+    list-style: none;
+    background-color: white;
+    color: rgb(33, 33, 33);
+    cursor: default;
+    font-family: 'arial';
+    font-size: 16px;
+    width: 570px;   
+    border-top-style: solid;
+    border-top-color: azure;
+    border-right-color: rgb(223, 225, 229);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-left-color: rgb(223, 225, 229);
+    border-left-style: solid;
+    border-left-width: 1px; 
+    border-bottom-color: rgb(223, 225, 229);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-radius: 24px;     
+    margin-left: 0px;
+    margin-top: 10px;
+    padding-left: 14px;
+    padding-top: 35px;
+}
+
+.home .autocompleter li
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.home .highlighted
+{
+    font-weight: bold;
+}
+
+.home .nonhighlighted
+{
+    font-weight: normal;
+}
+
+.home .autocompleter .element:hover
+{
+    background-color: rgb(221, 221, 221);
+}
+
+.home .hovered
+{
+    background-color: rgb(221, 221, 221);
+}
+
+.results .nothing
+{
+    display: none;
+}
+
+.results .autocompleter
+{
+    position: absolute;
+    list-style: none;
+    background-color: white;
+    color: rgb(33, 33, 33);
+    cursor: default;
+    font-family: 'arial';
+    font-size: 16px;
+    border-right-color: rgb(223, 225, 229);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-left-color: rgb(223, 225, 229);
+    border-left-style: solid;
+    border-left-width: 1px; 
+    border-bottom-color: rgb(223, 225, 229);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-radius: 24px;
+    top: 1px;
+    width: 678px;
+    padding-left: 14px;
+    padding-top: 50px;
+}
+
+.results .autocompleter li
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+.results .highlighted
+{
+    font-weight: bold;
+}
+
+.results .nonhighlighted
+{
+    font-weight: normal;
+}
+
+.results .autocompleter .element:hover
+{
+    background-color: rgb(221, 221, 221);
+}
+
+.results .hovered
+{
+    background-color: rgb(221, 221, 221);
+}
