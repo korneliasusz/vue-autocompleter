@@ -20,8 +20,12 @@
                     za pomocą strzałek, wyróżniona szarym tłem będzie aktualna pozycja, a po kliknięciu klawisza Enter nastąpi akcja przejścia do strony wyników.</p>
 
                 <h3>Jesteś na stronie głównej</h3>
+<<<<<<< HEAD
                 <v-autocompleter v-model="googleSearch" @input="googleSearch = $event" v-on:enter="googleResults=true"></v-autocompleter>
                 <!-- <v-autocompleter-results v-model="googleSearch" ></v-autocompleter-results> -->
+=======
+                <v-autocompleter v-on:enter="googleResults=true"></v-autocompleter>
+>>>>>>> 2b6d4c61bb51192edda58ca44258d72a3c1e5bd2
             </div>
     
             <div id="results_page">
@@ -34,8 +38,12 @@
                         Podobnie działa obsługa strzałek i klawisza Enter.
                     </p>
                     <h3>Jesteś na stronie wyników</h3>
+<<<<<<< HEAD
                     <!-- <v-autocompleter v-model="googleSearch"></v-autocompleter> -->
                     <v-autocompleter-results v-model="googleSearch" @input="googleSearch = $event"></v-autocompleter-results>
+=======
+                    <v-autocompleter-results></v-autocompleter-results>
+>>>>>>> 2b6d4c61bb51192edda58ca44258d72a3c1e5bd2
                 </div>
             </div>
         </div>
@@ -45,7 +53,10 @@
                 el: '#app',
                 data: {
                     googleResults: false,
+<<<<<<< HEAD
                     googleSearch: '',
+=======
+>>>>>>> 2b6d4c61bb51192edda58ca44258d72a3c1e5bd2
               },
             })
         </script>
